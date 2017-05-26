@@ -1,16 +1,19 @@
 <?php
+
 namespace cbernasch\cb_wp_nonce_test\creator;
+use cbernasch\cb_wp_nonce_test\config\CB_WP_Nonces_Config;
 
 /**
  * CB WP Nonces Creator Class
  */
-
-class CB_WP_Nonces_Creator{
+class CB_WP_Nonces_Creator extends CB_WP_Nonces_Config{
 
     private $url;
     private $action;
 
     /**
+     * Constructor
+     *
      * @param null $url
      * @param string $nonce_name
      * @param $action
@@ -22,6 +25,8 @@ class CB_WP_Nonces_Creator{
     }
 
     /**
+     * Getter for §url
+     *
      * @return mixed
      */
     public function get_url(){
@@ -30,6 +35,8 @@ class CB_WP_Nonces_Creator{
     }
 
     /**
+     * Setter for §url
+     *
      * @param $url
      */
     public function set_url($url){
@@ -37,6 +44,8 @@ class CB_WP_Nonces_Creator{
     }
 
     /**
+     * Getter for $action
+     *
      * @return mixed
      */
     public function get_action(){
@@ -45,12 +54,19 @@ class CB_WP_Nonces_Creator{
     }
 
     /**
+     * Setter for $action
+     *
      * @param $action
      */
     public function set_action($action){
         $this->action = $action;
     }
 
+    /**
+     * Get the url with a nonce
+     *
+     * @return mixed
+     */
     public function get_nonce_url(){
         //TODO cb validation url
         if(!$this->url){
@@ -59,6 +75,29 @@ class CB_WP_Nonces_Creator{
         }
 
         return wp_nonce_url($this->url, $this->action, $this->nonce_name);
+    }
+
+    /**
+     * Get an hidden nonce_field for a form. And, if set, a referer field
+     *
+     * @param string $ref
+     * @param bool $echo
+     *
+     * @return mixed
+     */
+    public function get_nonce_field($ref = "ref", $echo = true){
+
+        return wp_nonce_field($this->action, $this->nonce_name, $ref, $echo);
+    }
+
+    /**
+     * Get a one time nonce
+     *
+     * @return string
+     */
+    public function get_simple_nonce(){
+
+        return wp_create_nonce($this->action);
     }
 }
 
