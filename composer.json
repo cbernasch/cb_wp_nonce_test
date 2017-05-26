@@ -1,0 +1,24 @@
+{
+    "name": "cbernasch/cb_wp_nonce_test",
+    "description": "plugin for the wordpress nounces functionality",
+    "homepage": "https://github.com/cbernasch/cb_wp_nonce_test",
+    "license": "MIT",
+    "version": "1.0",
+    "authors": [
+        {
+            "name": "Chris Bernasch",
+            "email": "cb@cbernasch.de",
+            "homepage": "https://cbernasch.de"
+        }
+    ],
+    "type": "wordpress-plugin",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/cbernasch/cb_wp_nonce_test"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0"
+    }
+}

@@ -15,8 +15,13 @@ Installation
 Requirements
 ------------
 
-* Requires at least: PHP / Wordpress
+* PHP 5.4.0 or greater
+* Wordpress 2.0.3 or greater
 
+Languages
+------------
+
+* english
 
 Changelog
 ---------
