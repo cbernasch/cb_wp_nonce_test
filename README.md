@@ -6,7 +6,7 @@ cb_wp_nonce_test
 Description
 -----------
 
-* plugin for the wordpress nounces functionality
+* package for making the nonces Wordpress functionality available in an oop-based way
 
 Installation
 ------------

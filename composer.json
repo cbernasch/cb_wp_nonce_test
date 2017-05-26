@@ -1,6 +1,6 @@
 {
     "name": "cbernasch/cb_wp_nonce_test",
-    "description": "plugin for the wordpress nounces functionality",
+    "description": "package for making the nonces functionality available in an oop-based way",
     "homepage": "https://github.com/cbernasch/cb_wp_nonce_test",
     "license": "MIT",
     "version": "1.0",
@@ -11,7 +11,7 @@
             "homepage": "https://cbernasch.de"
         }
     ],
-    "type": "wordpress-plugin",
+    "type": "package",
     "repositories": [
         {
             "type": "vcs",
