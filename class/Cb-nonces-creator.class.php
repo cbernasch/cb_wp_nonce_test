@@ -25,7 +25,7 @@ class CB_WP_Nonces_Creator extends CB_WP_Nonces_Config{
     }
 
     /**
-     * Getter for §url
+     * Getter for $url
      *
      * @return mixed
      */
@@ -35,7 +35,7 @@ class CB_WP_Nonces_Creator extends CB_WP_Nonces_Config{
     }
 
     /**
-     * Setter for §url
+     * Setter for $url
      *
      * @param $url
      */

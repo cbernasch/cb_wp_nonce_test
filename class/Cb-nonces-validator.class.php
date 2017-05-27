@@ -30,6 +30,7 @@ class CB_WP_Nonces_Validator{
      * @return mixed
      */
     public function validate_url($url, $action = -1, $nonce_name){
+        //todo cb validate noncename
         //get query from url
         $query = parse_url($url, PHP_URL_QUERY);
         //string to array
