@@ -23,11 +23,20 @@ class CB_WP_Nonces_Config{
     }
 
     /**
+     * Setter for $validate_msg
+     *
+     * @param $validate_msg
+     */
+    public function set_validate_msg($validate_msg){
+        $this->validate_msg = $validate_msg;
+    }
+
+    /**
      * Get the lifetime of the nonce
      *
      * @return int
      */
-    public function get_lifetime(){
+    public function get_lifetime_nonce(){
 
         return $this->lifetime_nonce;
     }
@@ -38,7 +47,7 @@ class CB_WP_Nonces_Config{
      *
      * @param int $lifetime_nonce (in seconds)
      */
-    public function set_lifetime($lifetime_nonce){
+    public function set_lifetime_nonce($lifetime_nonce){
         $this->lifetime_nonce = $lifetime_nonce;
     }
 
@@ -48,4 +57,5 @@ class CB_WP_Nonces_Config{
     public function set_lifetime_filter(){
         add_filter('nonce_life', $this->lifetime_nonce);
     }
+
 }

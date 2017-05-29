@@ -60,10 +60,6 @@ class CB_WP_Vaidator_Test extends WP_UnitTestCase {
         $validator = new CBValidator(null, null, $this->def_action, $this->def_nonce_name);
         $this->assertInternalType('int', $validator->validate_ajax_referer());
     }
-
-
-
-
 }
 
 ?>
