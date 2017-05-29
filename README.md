@@ -10,13 +10,24 @@ Description
 
 How to use
 ------------
+
  1. add this package to your composer.json
 
  ```json
  "cbernasch/cb_wp_nonce_test": "1.0.*"
  ```
+and add the repository, too
 
- and update with your composer
+ ```json
+   "repositories": [
+          {
+              "type": "vcs",
+              "url": "https://github.com/cbernasch/cb_wp_nonce_test"
+          }
+      ]
+ ```
+
+ update with your composer afterwards.
 
  2. Simply add files to your plugin (require and "use") / for generation use Cb_nonces_creator.class.php, for validating use Cb_nonce_validator.class.php
  3. To generate a simple nonce, just get a new generator with
@@ -39,8 +50,7 @@ How to use
   ```php
         $validator->validate()
    ```
-   to validate the nonce. The result should be an int value to show you, in which tick phase you are. For this example int(1). If the return is false, the nonce was not valid.
-
+   to validate the nonce. The result should be an int value, to show you, in which tick phase you are. For this example int(1). If the return is false, the nonce was not valid.
 
 
 Requirements
@@ -53,6 +63,9 @@ Languages
 ------------
 
 * english
+
+License
+-------
 
 Changelog
 ---------
