@@ -18,7 +18,7 @@ How to use
 
  and update with your composer
 
- 2. Simply add files to your plugin (require and "use")
+ 2. Simply add files to your plugin (require and "use") / for generation use Cb_nonces_creator.class.php, for validating use Cb_nonce_validator.class.php
  3. To generate a simple nonce, just get a new generator with
  ```php
  $creator = new CB_WP_Nonces_Creator(<your url>, <your action>, <your nonce name>);
@@ -27,6 +27,20 @@ How to use
  ```
  $your_nonce = $creator->get_simple_nonce()
  ```
+ 5. Et viola, u got your simple nonce.
+
+ 6. For validating this nonce, u just get a new validator
+  ```php
+  $validator = new CB_WP_Nonces_Validator(<your url to validate>, <your nonce to validate>, <your action>, <your nonce name>);
+  ```
+ 7. You just need <your url to validate> or <your nonce to validate>. For this example set NULL to <your url to validate> and the nonce u created earlier to <your nonce to validate>
+ 8. Now add
+  ```php
+        $validator->validate()
+   ```
+   to validate the nonce. The result should be an int value to show you, in which tick phase you are. For this example int(1).
+
+
 
 Requirements
 ------------
