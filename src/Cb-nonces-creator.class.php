@@ -32,6 +32,7 @@ class CB_WP_Nonces_Creator extends CBConfig{
         $this->nonce_name = $nonce_name;
         $this->ref = $ref;
         $this->echo_state = $echo_state;
+        parent::__construct();
     }
 
     /**
