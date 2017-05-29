@@ -66,6 +66,7 @@ Languages
 
 License
 -------
+MIT
 
 Changelog
 ---------
