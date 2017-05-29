@@ -41,11 +41,24 @@ class CB_WP_Vaidator_Test extends WP_UnitTestCase {
         $this->assertInternalType('int', $validator->validate());
     }
 
+    /**
+     * test validate_admin_referer
+     */
     function test_validate_admin_referer(){
         $creator = new CBCreator($this->def_url, $this->def_action, $this->def_nonce_name);
         $_REQUEST[$this->def_nonce_name] = $creator->get_simple_nonce();
         $validator = new CBValidator(null, null, $this->def_action, $this->def_nonce_name);
         $this->assertInternalType('int', $validator->validate_admin_referer());
+    }
+
+    /**
+     * validate_ajax_referer
+     */
+    function test_validate_ajax_referer(){
+        $creator = new CBCreator($this->def_url, $this->def_action, $this->def_nonce_name);
+        $_REQUEST[$this->def_nonce_name] = $creator->get_simple_nonce();
+        $validator = new CBValidator(null, null, $this->def_action, $this->def_nonce_name);
+        $this->assertInternalType('int', $validator->validate_ajax_referer());
     }
 
 

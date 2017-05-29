@@ -15,6 +15,7 @@ class CB_WP_Nonces_Validator{
     private $action;
     private $nonce;
     private $url;
+    private $die_param;
 
     /**
      * Constructor
@@ -23,12 +24,33 @@ class CB_WP_Nonces_Validator{
      * @param string $nonce_name
      * @param $action
      * @param string $nonce
+     * @param bool $die_param
      */
-    public function __construct($url = null, $nonce = null, $action = -1, $nonce_name = ''){
+    public function __construct($url = null, $nonce = null, $action = -1, $nonce_name = '', $die_param = false){
         $this->url = $url;
         $this->action = $action;
         $this->nonce_name = $nonce_name;
         $this->nonce = $nonce;
+        $this->die_param = false;
+    }
+
+    /**
+     * setter for $die_param
+     *
+     * @param $die_param
+     */
+    function set_die($die_param){
+        $this->die_param = $die_param;
+    }
+
+    /**
+     * Getter for $die_param
+     *
+     * @return bool
+     */
+    function get_die(){
+
+        return $this->die_param;
     }
 
     /**
@@ -142,7 +164,15 @@ class CB_WP_Nonces_Validator{
         return check_admin_referer($this->action, $this->nonce_name);
     }
 
+    /**
+     * Validates AJAX requests, script will not stop if $die_param is false (default here = false)
+     *
+     * @return false|true
+     */
+    public function validate_ajax_referer(){
 
+        return check_ajax_referer($this->action, $this->nonce_name, $this->die_param);
+    }
 
 }
 
