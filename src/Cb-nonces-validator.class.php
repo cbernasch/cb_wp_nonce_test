@@ -5,6 +5,8 @@ namespace cbernasch\cb_wp_nonce_test\validator;
  * CB WP Nonces Validator Class
  *
  * @package cbernasch\cb_wp_nonce_test
+ * @author cbernasch
+ * @link https://github.com/cbernasch/cb_wp_nonce_test
  */
 
 class CB_WP_Nonces_Validator{
