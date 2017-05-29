@@ -167,7 +167,7 @@ class CB_WP_Nonces_Validator{
     /**
      * Validates AJAX requests, script will not stop if $die_param is false (default here = false)
      *
-     * @return false|true
+     * @return false|int
      */
     public function validate_ajax_referer(){
 
