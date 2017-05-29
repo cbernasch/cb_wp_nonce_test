@@ -8,9 +8,15 @@ Description
 
 * package for making the nonces Wordpress functionality available in an oop-based way
 
-Installation
+How to use
 ------------
-* 
+ 1. add fils to your composer.json
+ ```json
+ "cbernasch/cb_wp_nonce_test": "1.0.*"
+ ```and update with your composer
+
+ 1. Simply add files to your plugin (require and "use")
+ 1. To generate a nonce, just
 
 Requirements
 ------------
