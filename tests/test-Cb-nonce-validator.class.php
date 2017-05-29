@@ -1,7 +1,7 @@
 <?php
 
-use cbernasch\cb_wp_nonce_test\creator\CB_WP_Nonces_Creator as CBCreator;
-use cbernasch\cb_wp_nonce_test\validator\CB_WP_Nonces_Validator as CBValidator;
+use cb_wp_nonce_test\creator\CB_WP_Nonces_Creator as CBCreator;
+use cb_wp_nonce_test\validator\CB_WP_Nonces_Validator as CBValidator;
 
 class CB_WP_Vaidator_Test extends WP_UnitTestCase {
 
@@ -39,6 +39,13 @@ class CB_WP_Vaidator_Test extends WP_UnitTestCase {
         $nonce = $field->getAttribute('value');
         $validator = new CBValidator(null, $nonce, $this->def_action, $this->def_nonce_name);
         $this->assertInternalType('int', $validator->validate());
+    }
+
+    function test_validate_admin_referer(){
+        $creator = new CBCreator($this->def_url, $this->def_action, $this->def_nonce_name);
+        $_REQUEST[$this->def_nonce_name] = $creator->get_simple_nonce();
+        $validator = new CBValidator(null, null, $this->def_action, $this->def_nonce_name);
+        $this->assertInternalType('int', $validator->validate_admin_referer());
     }
 
 

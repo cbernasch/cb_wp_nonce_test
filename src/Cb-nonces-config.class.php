@@ -1,10 +1,10 @@
 <?php
-namespace cbernasch\cb_wp_nonce_test\config;
+namespace cb_wp_nonce_test\config;
 
 /**
  * CB WP Nonces Config Class
  *
- * @package cbernasch\cb_wp_nonce_test
+ * @package cbernach/cb_wp_nonce_test
  * @author cbernasch
  * @link https://github.com/cbernasch/cb_wp_nonce_test
  */

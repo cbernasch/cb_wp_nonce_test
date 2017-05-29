@@ -1,10 +1,10 @@
 <?php
-namespace cbernasch\cb_wp_nonce_test\validator;
+namespace cb_wp_nonce_test\validator;
 
 /**
  * CB WP Nonces Validator Class
  *
- * @package cbernasch\cb_wp_nonce_test
+ * @package cbernach/cb_wp_nonce_test
  * @author cbernasch
  * @link https://github.com/cbernasch/cb_wp_nonce_test
  */
@@ -15,7 +15,6 @@ class CB_WP_Nonces_Validator{
     private $action;
     private $nonce;
     private $url;
-
 
     /**
      * Constructor
@@ -132,6 +131,18 @@ class CB_WP_Nonces_Validator{
 
         return wp_verify_nonce($url_params[$this->nonce_name], $this->action);
     }
+
+    /**
+     * Check if nonce is valid or request comes from admin-content
+     *
+     * @return false|int
+     */
+    public function validate_admin_referer(){
+
+        return check_admin_referer($this->action, $this->nonce_name);
+    }
+
+
 
 }
 
