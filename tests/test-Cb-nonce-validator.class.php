@@ -1,7 +1,7 @@
 <?php
 
-use \cb_wp_nonce_test\creator\CB_WP_Nonces_Creator as CBCreator;
-use \cb_wp_nonce_test\validator\CB_WP_Nonces_Validator as CBValidator;
+use cbernasch\cb_wp_nonce_test\creator\CB_WP_Nonces_Creator as CBCreator;
+use cbernasch\cb_wp_nonce_test\validator\CB_WP_Nonces_Validator as CBValidator;
 
 class CB_WP_Vaidator_Test extends WP_UnitTestCase {
 
@@ -9,7 +9,6 @@ class CB_WP_Vaidator_Test extends WP_UnitTestCase {
     private $def_action = 'dev_action';
     private $def_nonce_name = 'nonce';
     private $def_ref = 'reference';
-    private $def_echo_state = true;
 
     /**
      * test for validate_url

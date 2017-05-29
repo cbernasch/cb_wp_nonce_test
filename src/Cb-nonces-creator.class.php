@@ -1,13 +1,15 @@
 <?php
 
-namespace cb_wp_nonce_test\creator;
+namespace cbernasch\cb_wp_nonce_test\creator;
 
 require 'src/Cb-nonces-config.class.php';
 
-use cb_wp_nonce_test\config\CB_WP_Nonces_Config as CBConfig;
+use cbernasch\cb_wp_nonce_test\config\CB_WP_Nonces_Config as CBConfig;
 
 /**
  * CB WP Nonces Creator Class
+ *
+ * @package cbernasch\cb_wp_nonce_test
  */
 class CB_WP_Nonces_Creator extends CBConfig{
 
