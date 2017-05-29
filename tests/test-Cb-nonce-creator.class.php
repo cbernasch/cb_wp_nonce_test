@@ -25,8 +25,7 @@ class CB_WP_Creator_Test extends WP_UnitTestCase {
      */
     function test_get_nonce_field(){
         $creator = new CBCreator($this->def_url, $this->def_action, $this->def_nonce_name);
-        $return = $creator->get_nonce_field($this->def_ref, $this->def_echo_state);
-        $this->assertNotNull($return);
+        $this->assertNotNull($creator->get_nonce_field($this->def_ref, $this->def_echo_state));
     }
 
     /**
@@ -34,8 +33,7 @@ class CB_WP_Creator_Test extends WP_UnitTestCase {
      */
     function test_get_simple_nonce(){
         $creator = new CBCreator($this->def_url, $this->def_action, $this->def_nonce_name);
-        $return = $creator->get_simple_nonce();
-        $this->assertNotNull($return);
+        $this->assertNotNull($creator->get_simple_nonce());
     }
 
 

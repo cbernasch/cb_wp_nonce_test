@@ -126,7 +126,7 @@ class CB_WP_Nonces_Validator{
         //string to array
         parse_str($parsed_url, $url_params);
 
-        return $this->validate($url_params[$this->nonce_name], $this->action);
+        return wp_verify_nonce($url_params[$this->nonce_name], $this->action);
     }
 
 }
