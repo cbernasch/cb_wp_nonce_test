@@ -39,7 +39,7 @@ How to use
   ```php
         $validator->validate()
    ```
-   to validate the nonce. The result should be an int value to show you, in which tick phase you are. For this example int(1).
+   to validate the nonce. The result should be an int value to show you, in which tick phase you are. For this example int(1). If the return is false, the nonce was not valid.
 
 
 
