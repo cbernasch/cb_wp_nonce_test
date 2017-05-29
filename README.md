@@ -31,7 +31,8 @@ How to use
 
  6. For validating this nonce, u just get a new validator
   ```php
-  $validator = new CB_WP_Nonces_Validator(<your url to validate>, <your nonce to validate>, <your action>, <your nonce name>);
+  $validator = new CB_WP_Nonces_Validator(<your url to validate>,
+  <your nonce to validate>, <your action>, <your nonce name>);
   ```
  7. You just need <your url to validate> or <your nonce to validate>. For this example set NULL to <your url to validate> and the nonce u created earlier to <your nonce to validate>
  8. Now add
