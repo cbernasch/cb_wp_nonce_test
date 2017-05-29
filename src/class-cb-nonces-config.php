@@ -9,7 +9,7 @@ namespace cb_wp_nonce_test\config;
  * @link https://github.com/cbernasch/cb_wp_nonce_test
  */
 
-class CB_WP_Nonces_Config{
+class CB_WP_Nonces_Config {
 
     private $lifetime_nonce;
 
@@ -18,7 +18,7 @@ class CB_WP_Nonces_Config{
      *
      * @param int $lifetime_nonce
      */
-    public function __construct($lifetime_nonce = 86400){
+    public function __construct( $lifetime_nonce = 86400 ){
         $this->lifetime_nonce = $lifetime_nonce;
     }
 
@@ -27,7 +27,7 @@ class CB_WP_Nonces_Config{
      *
      * @param $validate_msg
      */
-    public function set_validate_msg($validate_msg){
+    public function set_validate_msg( $validate_msg ){
         $this->validate_msg = $validate_msg;
     }
 
@@ -47,7 +47,7 @@ class CB_WP_Nonces_Config{
      *
      * @param int $lifetime_nonce (in seconds)
      */
-    public function set_lifetime_nonce($lifetime_nonce){
+    public function set_lifetime_nonce( $lifetime_nonce ){
         $this->lifetime_nonce = $lifetime_nonce;
     }
 
@@ -55,7 +55,6 @@ class CB_WP_Nonces_Config{
      * Add nonce_life filter to WP
      */
     public function set_lifetime_filter(){
-        add_filter('nonce_life', $this->lifetime_nonce);
+        add_filter( 'nonce_life', $this->lifetime_nonce );
     }
-
 }

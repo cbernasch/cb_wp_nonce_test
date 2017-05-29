@@ -9,7 +9,7 @@ namespace cb_wp_nonce_test\validator;
  * @link https://github.com/cbernasch/cb_wp_nonce_test
  */
 
-class CB_WP_Nonces_Validator{
+class CB_WP_Nonces_Validator {
 
     private $nonce_name;
     private $action;
@@ -26,7 +26,7 @@ class CB_WP_Nonces_Validator{
      * @param string $nonce
      * @param bool $die_param
      */
-    public function __construct($url = null, $nonce = null, $action = -1, $nonce_name = '', $die_param = false){
+    public function __construct( $url = null, $nonce = null, $action = -1, $nonce_name = '', $die_param = false ){
         $this->url = $url;
         $this->action = $action;
         $this->nonce_name = $nonce_name;
@@ -39,7 +39,7 @@ class CB_WP_Nonces_Validator{
      *
      * @param $die_param
      */
-    function set_die($die_param){
+    function set_die( $die_param ){
         $this->die_param = $die_param;
     }
 
@@ -58,7 +58,7 @@ class CB_WP_Nonces_Validator{
      *
      * @param $nonce
      */
-    public function set_nonce($nonce){
+    public function set_nonce( $nonce ){
         $this->nonce = $nonce;
     }
 
@@ -77,7 +77,7 @@ class CB_WP_Nonces_Validator{
      *
      * @param $nonce_name
      */
-    public function set_nonce_name($nonce_name){
+    public function set_nonce_name( $nonce_name ){
         $this->nonce_name = $nonce_name;
     }
 
@@ -106,7 +106,7 @@ class CB_WP_Nonces_Validator{
      *
      * @param $url
      */
-    public function set_url($url){
+    public function set_url( $url ){
         $this->url = $url;
     }
 
@@ -125,7 +125,7 @@ class CB_WP_Nonces_Validator{
      *
      * @param $action
      */
-    public function set_action($action){
+    public function set_action( $action ){
         $this->action = $action;
     }
 
@@ -136,7 +136,7 @@ class CB_WP_Nonces_Validator{
      */
     public function validate(){
 
-        return wp_verify_nonce($this->nonce, $this->action);
+        return wp_verify_nonce( $this->nonce, $this->action );
     }
 
     /**
@@ -147,11 +147,11 @@ class CB_WP_Nonces_Validator{
     public function validate_url(){
         //todo cb validate nonce_name
         //get query from url
-        $parsed_url = parse_url($this->url, PHP_URL_QUERY);
+        $parsed_url = parse_url( $this->url, PHP_URL_QUERY );
         //string to array
-        parse_str($parsed_url, $url_params);
+        parse_str( $parsed_url, $url_params );
 
-        return wp_verify_nonce($url_params[$this->nonce_name], $this->action);
+        return wp_verify_nonce( $url_params[$this->nonce_name], $this->action );
     }
 
     /**
@@ -161,7 +161,7 @@ class CB_WP_Nonces_Validator{
      */
     public function validate_admin_referer(){
 
-        return check_admin_referer($this->action, $this->nonce_name);
+        return check_admin_referer( $this->action, $this->nonce_name );
     }
 
     /**
@@ -171,10 +171,6 @@ class CB_WP_Nonces_Validator{
      */
     public function validate_ajax_referer(){
 
-        return check_ajax_referer($this->action, $this->nonce_name, $this->die_param);
+        return check_ajax_referer( $this->action, $this->nonce_name, $this->die_param );
     }
-
 }
-
-
-
