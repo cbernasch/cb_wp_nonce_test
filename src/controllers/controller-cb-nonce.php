@@ -3,8 +3,8 @@
 namespace cb_wp_nonce_test\nonce_controller;
 
 require '../config/config-cb-nonce-global.php';
-require '../class/class-cb-nonces-creator.php';
-require '../class/class-cb-nonces-validator.php';
+require '../classes/class-cb-nonces-creator.php';
+require '../classes/class-cb-nonces-validator.php';
 require '../models/model-cb-nonce.php';
 require '../interfaces/interface-cb-nonces.php';
 

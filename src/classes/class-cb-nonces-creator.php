@@ -2,7 +2,7 @@
 
 namespace cb_wp_nonce_test\creator;
 
-require 'src/class/class-cb-nonces-config.php';
+require 'src/classes/class-cb-nonces-config.php';
 require 'src/interfaces/interface-cb-nonce.php';
 
 use cb_wp_nonce_test\config\CB_WP_Nonces_Config as CBConfig;

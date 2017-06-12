@@ -2,7 +2,7 @@
 
 namespace cb_wp_nonce_test\nonce_model;
 
-require 'src/libs/class-cb-nonces-db-pdo.php';
+require 'src/libs/db/class-cb-nonces-db-pdo.php';
 
 use cb_wp_nonce_test\database\CB_WP_Nonce_DB_PDO as CBWPDatabasePDO;
 
