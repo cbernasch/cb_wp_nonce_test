@@ -6,6 +6,7 @@ require '../config/config-cb-nonce-global.php';
 require '../classes/class-cb-nonces-creator.php';
 require '../classes/class-cb-nonces-validator.php';
 require '../models/model-cb-nonce.php';
+require '../classes/class-cb-nonces-template-view.php';
 require '../interfaces/interface-cb-nonces.php';
 
 
@@ -14,6 +15,7 @@ use cb_wp_nonce_test\nonce_interface\CB_WP_Nonces_Interface as CBWPInterface;
 use cb_wp_nonce_test\nonce_model\CB_WP_Nonces_Model as CBWPModel;
 use cb_wp_nonce_test\creator\CB_WP_Nonces_Creator as CBWPCreator;
 use cb_wp_nonce_test\validator\CB_WP_Nonces_Validator as CBWPValidator;
+use cb_wp_nonce_test\nonce_template_view\CB_WP_Nonce_Template_View as CBWPTemplateView;
 
 /**
  * Class CB_WP_Nonces_Controller
@@ -30,6 +32,11 @@ class CB_WP_Nonces_Controller{
      * @var $cb_wp_nonce_model <-- Model of the package / demo purpose
      */
     private $cb_wp_nonce_model;
+
+    /**
+     * @var $cb_wp_nonce_view <-- some view, default views/404.phtml
+     */
+    private $cb_wp_nonce_view;
 
     /**
      * Constructor for CP WP Nonces Controller
@@ -127,7 +134,19 @@ class CB_WP_Nonces_Controller{
      *
      * @param $nonce_name <-- the nonce name
      */
-    public function demo_use_set_nonce_name($nonce_name) {
+    public function demo_use_set_nonce_name( $nonce_name) {
         $this->demo_set_nonce_name( new CB_WP_Nonces_Creator() , $nonce_name );
+    }
+
+    /**
+     * Demo: example for render and output the default view (404 page) with 1 parameter (testmessage)
+     *
+     * @return string <-- rendered 404 Page
+     */
+    public function demo_get_error_page(){
+        $this->cb_wp_nonce_view = new CBWPTemplateView();
+        $this->cb_wp_nonce_view->assign( 'testmessage', 'This is a test message for the 404 page' );
+
+        return $this->cb_wp_nonce_view->render();
     }
 }

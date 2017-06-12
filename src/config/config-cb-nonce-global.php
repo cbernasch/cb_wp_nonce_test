@@ -1,6 +1,12 @@
 <?
 
 /**
+ * Config CB WP Nonces DB
+ *
+ * @package cbernach/cb_wp_nonce_test
+ * @author cbernasch
+ * @link https://github.com/cbernasch/cb_wp_nonce_test
+ *
  * define Globals for database connection
  */
 
