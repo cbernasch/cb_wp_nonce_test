@@ -2,10 +2,12 @@
 
 namespace cb_wp_nonce_test\nonce_controller;
 
+require '../config/config-cb-nonce-global.php';
 require '../class/class-cb-nonces-creator.php';
 require '../class/class-cb-nonces-validator.php';
 require '../models/model-cb-nonce.php';
 require '../interfaces/interface-cb-nonces.php';
+
 
 use cb_wp_nonce_test\creator\CB_WP_Nonces_Creator;
 use cb_wp_nonce_test\nonce_interface\CB_WP_Nonces_Interface as CBWPInterface;
@@ -59,7 +61,7 @@ class CB_WP_Nonces_Controller{
         if( $nonce != null ) {
             $validator = new CBWPValidator( null, $nonce, $action);
 
-            return is_int($validator->validate());
+            return is_int( $validator->validate() );
         }
         else {
 
@@ -117,7 +119,7 @@ class CB_WP_Nonces_Controller{
      */
     public function demo_use_get_nonce_name() {
 
-        return $this->demo_get_nonce_name( new CB_WP_Nonces_Creator( null ,-1 ) );
+        return $this->demo_get_nonce_name( new CB_WP_Nonces_Creator() );
     }
 
     /**
@@ -126,6 +128,6 @@ class CB_WP_Nonces_Controller{
      * @param $nonce_name <-- the nonce name
      */
     public function demo_use_set_nonce_name($nonce_name) {
-        $this->demo_set_nonce_name( new CB_WP_Nonces_Creator( null ,-1) , $nonce_name );
+        $this->demo_set_nonce_name( new CB_WP_Nonces_Creator() , $nonce_name );
     }
 }

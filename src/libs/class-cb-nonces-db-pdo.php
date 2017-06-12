@@ -15,22 +15,22 @@ class CB_WP_Nonce_DB_PDO {
     /**
      * @var $host <-- database host
      */
-    private $host = 'dbhost';
+    private $host = DB_SERVER;
 
     /**
      * @var $user <-- database user
      */
-    private $user = 'dbuser';
+    private $user = DB_USER;
 
     /**
      * @var $pass <-- database password
      */
-    private $pass = 'dbpass';
+    private $pass = DB_PASS;
 
     /**
      * @var $dbname <-- database name
      */
-    private $dbname = 'dbname';
+    private $dbname = DB_NAME;
 
     /**
      * @var $dbh <-- pdo
