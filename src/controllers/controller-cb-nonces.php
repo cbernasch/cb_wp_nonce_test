@@ -2,7 +2,7 @@
 
 namespace cb_wp_nonce_test\nonce_controller;
 
-require '../config/config-cb-nonce-global.php';
+require '../config/config-cb-nonces-global.php';
 require '../classes/class-cb-nonces-creator.php';
 require '../classes/class-cb-nonces-validator.php';
 require '../models/model-cb-nonce.php';
