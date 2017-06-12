@@ -47,7 +47,7 @@ class CB_WP_Nonces_Model {
      *
      * @return mixed <-- the user associated with the userid
      */
-    public function demo_get_user_by_uid($uid) {
+    public function demo_get_user_by_uid( $uid ) {
         $this->db->query( 'SELECT * FROM users WHERE uid = :uid' );
         $this->db->bind( ':uid', $uid );
 

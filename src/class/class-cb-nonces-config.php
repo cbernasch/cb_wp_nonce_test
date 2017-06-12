@@ -26,7 +26,6 @@ class CB_WP_Nonces_Config {
         $this->lifetime_nonce = $lifetime_nonce;
     }
 
-
     /**
      * Get the lifetime of the nonce
      *

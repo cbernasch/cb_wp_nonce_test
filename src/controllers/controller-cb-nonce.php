@@ -2,17 +2,16 @@
 
 namespace cb_wp_nonce_test\nonce_controller;
 
-require '../model/model-cb-nonce.php';
 require '../class/class-cb-nonces-creator.php';
 require '../class/class-cb-nonces-validator.php';
-require '../interfaces/interface-cb-nonces.php';
 require '../models/model-cb-nonce.php';
+require '../interfaces/interface-cb-nonces.php';
 
-use cb_wp_nonce_test\nonce_interface\CB_WP_Nonces_Interface;
+use cb_wp_nonce_test\creator\CB_WP_Nonces_Creator;
+use cb_wp_nonce_test\nonce_interface\CB_WP_Nonces_Interface as CBWPInterface;
 use cb_wp_nonce_test\nonce_model\CB_WP_Nonces_Model as CBWPModel;
 use cb_wp_nonce_test\creator\CB_WP_Nonces_Creator as CBWPCreator;
 use cb_wp_nonce_test\validator\CB_WP_Nonces_Validator as CBWPValidator;
-use cb_wp_nonce_test\nonce_interface\CB_WP_Nonces_Interface as CBWPInterface;
 
 /**
  * Class CB_WP_Nonces_Controller
@@ -29,7 +28,6 @@ class CB_WP_Nonces_Controller{
      * @var $cb_wp_nonce_model <-- Model of the package / demo purpose
      */
     private $cb_wp_nonce_model;
-    private $cb_wp_interface;
 
     /**
      * Constructor for CP WP Nonces Controller
@@ -90,9 +88,44 @@ class CB_WP_Nonces_Controller{
         return $this->cb_wp_nonce_model->demo_get_user_by_uid( $uid );
     }
 
-    public function demo_get_and_set_nonce_name(CB_WP_Nonces_Interface $nonces_interface) {
-        $creator = new CBWPCreator( null, -1, 'testNonce' );
-        $nonces_interface->get_nonce_name();
+    /**
+     * Demo for getting the nonce name from validator or creator
+     *
+     * @param CBWPInterface $interface <-- creator or validator
+     *
+     * @return mixed <-- returns the nonce name
+     */
+    private function demo_get_nonce_name( CBWPInterface $interface ) {
 
+        return $interface->get_nonce_name();
+    }
+
+    /**
+     * Demo for setting the nonce name from validator or creator
+     *
+     * @param CBWPInterface $interface <-- creator or validator
+     * @param $nonce_name <-- the nonce name
+     */
+    private function demo_set_nonce_name( CBWPInterface $interface, $nonce_name ) {
+        $interface->set_nonce_name($nonce_name);
+    }
+
+    /**
+     * Demo: example for getting the nonce_name from the creator
+     *
+     * @return mixed <-- returns the nonce name
+     */
+    public function demo_use_get_nonce_name() {
+
+        return $this->demo_get_nonce_name( new CB_WP_Nonces_Creator( null ,-1 ) );
+    }
+
+    /**
+     * Demo: example for setting the nonce_name for the creator
+     *
+     * @param $nonce_name <-- the nonce name
+     */
+    public function demo_use_set_nonce_name($nonce_name) {
+        $this->demo_set_nonce_name( new CB_WP_Nonces_Creator( null ,-1) , $nonce_name );
     }
 }

@@ -7,6 +7,7 @@ require 'src/interfaces/interface-cb-nonce.php';
 
 use cb_wp_nonce_test\config\CB_WP_Nonces_Config as CBConfig;
 use cb_wp_nonce_test\nonce_interface\CB_WP_Nonces_Interface as CBNonceInterface;
+
 /**
  * CB WP Nonces Creator Class
  *

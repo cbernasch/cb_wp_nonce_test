@@ -5,6 +5,7 @@ namespace cb_wp_nonce_test\validator;
 require 'src/interfaces/interface-cb-nonce.php';
 
 use cb_wp_nonce_test\nonce_interface\CB_WP_Nonces_Interface as CBNonceInterface;
+
 /**
  * CB WP Nonces Validator Class
  *
@@ -13,7 +14,7 @@ use cb_wp_nonce_test\nonce_interface\CB_WP_Nonces_Interface as CBNonceInterface;
  * @link https://github.com/cbernasch/cb_wp_nonce_test
  */
 
-class CB_WP_Nonces_Validator implements CBNonceInterface{
+class CB_WP_Nonces_Validator implements CBNonceInterface {
 
     /**
      * @var $nonce_name <-- the name of the nonce
