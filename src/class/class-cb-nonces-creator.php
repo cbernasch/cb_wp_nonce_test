@@ -2,10 +2,11 @@
 
 namespace cb_wp_nonce_test\creator;
 
-require 'src/class-cb-nonces-config.php';
+require 'src/class/class-cb-nonces-config.php';
+require 'src/interfaces/interface-cb-nonce.php';
 
 use cb_wp_nonce_test\config\CB_WP_Nonces_Config as CBConfig;
-
+use cb_wp_nonce_test\nonce_interface\CB_WP_Nonces_Interface as CBNonceInterface;
 /**
  * CB WP Nonces Creator Class
  *
@@ -14,12 +15,31 @@ use cb_wp_nonce_test\config\CB_WP_Nonces_Config as CBConfig;
  * @link https://github.com/cbernasch/cb_wp_nonce_test
  */
 
-class CB_WP_Nonces_Creator extends CBConfig {
+class CB_WP_Nonces_Creator extends CBConfig implements CBNonceInterface {
 
+    /**
+     * @var $url <-- the url in which the nonce should be implemented
+     */
     private $url;
+
+    /**
+     * @var $action <-- the nonce action name, Wordpress default is -1
+     */
     private $action;
+
+    /**
+     * @var $nonce_name <-- the name of the nonce
+     */
     private $nonce_name;
+
+    /**
+     * @var $ref <-- set the referer for wp_nonce_field
+     */
     private $ref;
+
+    /**
+     * @var $echo_state <-- display or return hidden form field for wp_nonce_field
+     */
     private $echo_state;
 
     /**
@@ -31,7 +51,7 @@ class CB_WP_Nonces_Creator extends CBConfig {
      * @param $ref
      * @param $echo_state
      */
-    public function __construct( $url = null, $action = -1, $nonce_name = '_wpnonce', $ref = "ref", $echo_state = true ){
+    public function __construct( $url = null, $action = -1, $nonce_name = '_wpnonce', $ref = "ref", $echo_state = true ) {
         $this->url = $url;
         $this->action = $action;
         $this->nonce_name = $nonce_name;
@@ -45,7 +65,7 @@ class CB_WP_Nonces_Creator extends CBConfig {
      *
      * @param $echo_state
      */
-    public function set_echo_state( $echo_state ){
+    public function set_echo_state( $echo_state ) {
         $this->echo_state = $echo_state;
     }
 
@@ -54,7 +74,7 @@ class CB_WP_Nonces_Creator extends CBConfig {
      *
      * @return bool
      */
-    public function get_echo_state(){
+    public function get_echo_state() {
 
         return $this->echo_state;
     }
@@ -64,7 +84,7 @@ class CB_WP_Nonces_Creator extends CBConfig {
      *
      * @param $ref
      */
-    public function set_ref( $ref ){
+    public function set_ref( $ref ) {
         $this->ref = $ref;
     }
 
@@ -73,7 +93,7 @@ class CB_WP_Nonces_Creator extends CBConfig {
      *
      * @return string
      */
-    public function get_ref(){
+    public function get_ref() {
 
         return $this->ref;
     }
@@ -83,7 +103,7 @@ class CB_WP_Nonces_Creator extends CBConfig {
      *
      * @param $nonce_name
      */
-    public function set_nonce_name( $nonce_name ){
+    public function set_nonce_name( $nonce_name ) {
         $this->nonce_name = $nonce_name;
     }
 
@@ -92,7 +112,7 @@ class CB_WP_Nonces_Creator extends CBConfig {
      *
      * @return string
      */
-    public function get_nonce_name(){
+    public function get_nonce_name() {
 
         return $this->nonce_name;
     }
@@ -102,7 +122,7 @@ class CB_WP_Nonces_Creator extends CBConfig {
      *
      * @return mixed
      */
-    public function get_url(){
+    public function get_url() {
 
         return $this->url;
     }
@@ -112,7 +132,7 @@ class CB_WP_Nonces_Creator extends CBConfig {
      *
      * @param $url
      */
-    public function set_url( $url ){
+    public function set_url( $url ) {
         $this->url = $url;
     }
 
@@ -121,7 +141,7 @@ class CB_WP_Nonces_Creator extends CBConfig {
      *
      * @return mixed
      */
-    public function get_action(){
+    public function get_action() {
 
         return $this->action;
     }
@@ -131,7 +151,7 @@ class CB_WP_Nonces_Creator extends CBConfig {
      *
      * @param $action
      */
-    public function set_action( $action ){
+    public function set_action( $action ) {
         $this->action = $action;
     }
 
@@ -140,7 +160,7 @@ class CB_WP_Nonces_Creator extends CBConfig {
      *
      * @return mixed
      */
-    public function get_nonce_url(){
+    public function get_nonce_url() {
         //TODO cb validation url
         if( !$this->url ){
 
@@ -155,7 +175,7 @@ class CB_WP_Nonces_Creator extends CBConfig {
      *
      * @return mixed
      */
-    public function get_nonce_field(){
+    public function get_nonce_field() {
 
         return wp_nonce_field( $this->action, $this->nonce_name, $this->ref, $this->echo_state );
     }
@@ -165,7 +185,7 @@ class CB_WP_Nonces_Creator extends CBConfig {
      *
      * @return string
      */
-    public function get_simple_nonce(){
+    public function get_simple_nonce() {
 
         return wp_create_nonce( $this->action );
     }

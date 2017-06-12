@@ -1,4 +1,5 @@
 <?php
+
 namespace cb_wp_nonce_test\config;
 
 /**
@@ -11,6 +12,9 @@ namespace cb_wp_nonce_test\config;
 
 class CB_WP_Nonces_Config {
 
+    /**
+     * @var $lifetime_nonce <-- lifetime of the nonce 86400 seconds (1 day) is Wordpress default
+     */
     private $lifetime_nonce;
 
     /**
@@ -18,43 +22,34 @@ class CB_WP_Nonces_Config {
      *
      * @param int $lifetime_nonce
      */
-    public function __construct( $lifetime_nonce = 86400 ){
+    public function __construct( $lifetime_nonce = 86400 ) {
         $this->lifetime_nonce = $lifetime_nonce;
     }
 
-    /**
-     * Setter for $validate_msg
-     *
-     * @param $validate_msg
-     */
-    public function set_validate_msg( $validate_msg ){
-        $this->validate_msg = $validate_msg;
-    }
 
     /**
      * Get the lifetime of the nonce
      *
-     * @return int
+     * @return int <-- return the lifetime of the nonce in seconds
      */
-    public function get_lifetime_nonce(){
+    public function get_lifetime_nonce() {
 
         return $this->lifetime_nonce;
     }
 
-    //86400 seconds (1day default)
     /**
      * Set the lifetime of a nonce
      *
      * @param int $lifetime_nonce (in seconds)
      */
-    public function set_lifetime_nonce( $lifetime_nonce ){
+    public function set_lifetime_nonce( $lifetime_nonce ) {
         $this->lifetime_nonce = $lifetime_nonce;
     }
 
     /**
-     * Add nonce_life filter to WP
+     * Add nonce_life filter to WP to set the new lifetime
      */
-    public function set_lifetime_filter(){
+    public function set_lifetime_filter() {
         add_filter( 'nonce_life', $this->lifetime_nonce );
     }
 }
